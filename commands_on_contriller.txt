@@ -1,0 +1,556 @@
+    1  sudo yum install -y nano
+    2  git 
+    3  vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+    4  ll  /etc/sysconfig/network-scripts/
+    5  ifconfig
+    6  vi /etc/sysconfig/network-scripts/ifcfg-ens33
+    7  vim
+    8  vi
+    9  hostname
+   10  hostname -f
+   11  hostname -s
+   12  cat /etc/hostname
+   13  sudo hostnamectl set-hostname controller1.example.com
+   14  sudo reboot
+   15  ifconfig
+   16  sudo yum install -y net-tools
+   17  ifconfig
+   18  cat /etc/issue
+   19  cat /etc/centos-release
+   20  ll 
+   21  sudo vi /etc/hosts
+   22  ll /dev/mapper/centos-swap 
+   23  cat /etc/fstab 
+   24  cd cka/
+   25  ll
+   26  cat setup-kubetools.sh 
+   27  cat /etc/fstab 
+   28  systemctl status kubelet.service 
+   29  shutdown now
+   30  hostname
+   31  cat /etc/hostname 
+   32  sudo yum install -y vim git bash-completion  
+   33  ll 
+   34  git clone https://github.com/yanxiaosong/cka.git
+   35  ll 
+   36  cd cka/
+   37  ll
+   38  sudo ./setup-docker.sh 
+   39  sudo ./setup-kubetools.sh 
+   40  shutdown 
+   41  shutdown now
+   42  vi /etc/services
+   43  kubeadm
+   44  ll /etc/kubernetes/
+   45  kubeadm  --version 
+   46  kubeadm  -v
+   47  kube
+   48  sudo su -
+   49  group 
+   50  id
+   51  sudo visudo 
+   52  sudo kubeadm init
+   53  sudo ls 
+   54  sudo visudo
+   55  mkdir -p $HOME/.kube
+   56  ll .kube/
+   57    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   58  cat .kube/config 
+   59    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   60  id -u
+   61  id -g
+   62  cat .kube/config 
+   63  kubectl cluster-info
+   64  kubectl get nodes 
+   65  kubectl version | base64 | tr -d '\n'
+   66  kubectl version 
+   67  kubectl version | base64
+   68  kubectl version | base64 | tr -d '\n'
+   69  sudo kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+   70  kubectl get pods --all-namespaces
+   71  kubectl get nodes
+   72  [A
+   73  kubectl get nodes
+   74  history 
+   75  kubectl get nodes 
+   76  ll 
+   77  kubectl cluster-info
+   78  kubectl get nodes 
+   79  sudo yum install bash-completion 
+   80  kubectl completion bash >> ~/.bashrc 
+   81  source ~/.bashrc 
+   82  kubectl get nodes 
+   83  history | grep kubectl
+   84  kubectl config view 
+   85  sudo kubect completion bash >> /etc/bash_completion.d/kubectl
+   86  sudo shell -c 'kubect completion bash >> /etc/bash_completion.d/kubectl'
+   87  sudo sh -c 'kubect completion bash >> /etc/bash_completion.d/kubectl'
+   88  sudo sh -c 'kubectl completion bash >> /etc/bash_completion.d/kubectl'
+   89  kubectl get nodes
+   90  date 
+   91  kubectl get nodes
+   92  kubectl get nodes 
+   93  ll
+   94  kubectl get nodes
+   95  kubectl proxy 
+   96  kubectl proxy &
+   97  curl http://localhost:8001/version 
+   98  history | grep kubectl 
+   99  kubectl config view 
+  100  etcdctl 
+  101  sudo yum provides etcdctl 
+  102  sudo yum provides */etcdctl 
+  103  sudo yum install -y etcd
+  104  etcdctl -h 
+  105  ETCDCTL_API=3 etcdctl -h 
+  106  kubectl get ns
+  107  kubectl get all --all-namespaces
+  108  kubectl get all --all-namespaces 
+  109  kubctl create ns dev
+  110  kubectl create ns dev
+  111  kubectl create namespace dev 
+  112  kubectl describe namespace dev 
+  113  kubectl describe namespace dev -o yaml 
+  114  kubectl get namespace dev -o yaml 
+  115  kubectl create 
+  116  kubectl create deployment --image=nginx  newnginx
+  117  kubectl get all
+  118  kubectl get deployments.apps newnginx   -o yaml 
+  119  ll
+  120  cd cka/
+  121  ll 
+  122  kubectl create deployment --dry-run --image=nginx   --output=yaml mydeploy  >  newdeploy.yaml
+  123  ll 
+  124  cat newdeploy.yaml 
+  125  kubectl get deployments.apps
+  126  kubectl get deployments.apps 
+  127  kubectl scale --replicas=3 deployment newnginx   
+  128  kubectl get pods
+  129  kubectl get all
+  130  kubectl edit deployments.apps newnginx 
+  131  kubectl get all
+  132  kubectl get pods
+  133  kubectl get all 
+  134  kubectl describe pod/newnginx-757c575454-hw6vr
+  135  kubectl logs newnginx-757c575454-hw6vr 
+  136  kubectl logs newnginx-757c575454-zkzth 
+  137  kubectl rollout restart deployment newnginx 
+  138  kubectl get all 
+  139  kubectl describe pod newnginx-757c575454-zkzth
+  140  kubectl get all 
+  141  kubectl get pods
+  142  kubectl get pod newnginx-594b479c4-gxl5v
+  143  kubectl get pod newnginx-594b479c4-gxl5v  -o wide
+  144  kubectl get pods  -o wide
+  145  cd 
+  146  kubectl get deployments 
+  147  kubectl get deployments  -o wide
+  148  kubectl get deployments  -o wide  --show-kind --show-labels 
+  149  kubectl label deployments.apps newnginx state=demo
+  150  kubectl get deployments  -o wide  --show-kind --show-labels 
+  151  kubectl get deployments.apps --selector state=demo
+  152  kubectl get deployments.apps --selector app=newnginx
+  153  kubectl get all  --selector app=newnginx
+  154  kubectl get pods
+  155  kubectl get pods  -w
+  156  kubectl get pods  -o w
+  157  kubectl get pods  -o wide
+  158  kubectl get pods  -o wide  --show-labels 
+  159  kubectl label pods newnginx-594b479c4-gxl5v pod-template-hash=; kubectl get pods
+  160  kubectl get pods  -o wide  --show-labels 
+  161  kubectl label pods newnginx-594b479c4-gxl5v pod-template-hash-; kubectl get pods
+  162  kubectl get pods  -o wide  --show-labels 
+  163  free -h 
+  164  kubectl label pods newnginx-594b479c4-vdv7k app-; kubectl get pods
+  165  kubectl get pods  -o wide  --show-labels 
+  166  kubectl get nodes
+  167  history 
+  168  kubectl get all --show-labels 
+  169  kubectl get replicaset
+  170  kubectl explain deployments.spec.strategy
+  171  kubectl explain deployments.spec.strategy.rollingUpdate
+  172  kubectl explain deployments.spec.strategy.rollingupdate
+  173  kubectl explain deployments.spec
+  174  kubectl explain pods.spec
+  175  kubectl explain deployments
+  176  kubectl explain deployments.kind
+  177  kubectl explain deployments
+  178  kubectl explain deployments.spec
+  179  kubectl explain deployments.spec.strategy
+  180  kubectl explain deployments.spec.strategy.rollingUpdate
+  181  kubectl explain deployments.spec.strategy.rollingUpdate.maxUnavailable
+  182  kubectl get deployments.apps 
+  183  kubectl get deployments.apps --show-lables
+  184  kubectl get deployments.apps --show-lable
+  185  kubectl get deployments.apps --show-lables
+  186  kubectl get deployments.apps -show-lables
+  187  kubectl get nodes 
+  188  kubectl get deployments.apps --show-labels
+  189  kubectl get replicasets
+  190  kubectl rollout -h 
+  191  cd cka/
+  192  ll
+  193  ll rolling.yaml 
+  194  vi  rolling.yaml 
+  195  kubectl create deployment  -f rolling.yaml 
+  196  kubectl create deployment -h 
+  197  kubectl create -f rolling.yaml 
+  198  kubectl get deployments.apps 
+  199  kubectl get pods --show-labels 
+  200  cat rolling.yaml 
+  201  kubectl rollout history 
+  202  kubectl rollout history  -h
+  203  kubectl rollout history  deployment/nginx
+  204  kubectl rollout history  deployment 
+  205  kubectl rollout history  deployment/rolling-nginx 
+  206  kubectl get deployments.apps --show-labels
+  207  kubectl get all  --show-labels
+  208  kubectl get all  --selector app=nginx
+  209  kubectl edit deployments.apps rolling-nginx 
+  210  kubectl rollout history deployment rolling-nginx 
+  211  kubectl get all --show-labels
+  212  kubectl describe deployments.apps rolling-nginx 
+  213  kubectl get replicasets.apps 
+  214  kubectl rollout undo deployment rolling-nginx --to-revision=2
+  215  kubectl rollout undo deployment rolling-nginx --to-revision=3
+  216  kubectl get deployments.apps rolling-nginx --revision=1
+  217  kubectl describe deployments.apps rolling-nginx --revision=1
+  218  kubectl rollout history deployment rolling-nginx --revision=1
+  219  kubectl rollout history deployment rolling-nginx --revision=2
+  220  kubectl rollout undo deployment rolling-nginx --to-revision=1
+  221  kubectl describe deployments.apps rolling-nginx 
+  222  kubectl get all 
+  223  kubectl describe pod rolling-nginx-7794bdf7b5-5tn9t 
+  224  kubectl describe pod rolling-nginx-7794bdf7b5-5tn9t -o yaml 
+  225  kubectl describe pod rolling-nginx-7794bdf7b5-5tn9t -o w
+  226  kubectl describe pod rolling-nginx-7794bdf7b5-5tn9t -o wide
+  227  kubectl describe --help 
+  228  kubectl describe pods rolling-nginx-7794bdf7b5-5tn9t -o wide
+  229  kubectl describe pods rolling-nginx-7794bdf7b5-5tn9t
+  230  kubectl describe po rolling-nginx-7794bdf7b5-5tn9t
+  231  ll 
+  232  history 
+  233  cd cka
+  234  ll 
+  235  kubectl create -f init1.yaml 
+  236  kubectl get pods
+  237  kubectl expose deployment nginx  --port=80 --name=myservivce
+  238  kubectl get deployments.apps 
+  239  history | grep nginx
+  240  kubectl expose deployment newnginx  --port=80 --name=myservivce
+  241  kubectl get pods
+  242  kubectl get services
+  243  kubectl get pods
+  244  kubectl describe services
+  245  kubectl describe services myservivce 
+  246  kubectl get pods
+  247  kubectl get services
+  248  kubectl get svc
+  249  kubectl get pods
+  250  kubectl get services
+  251  kubectl describe myservice
+  252  kubectl describe deployments.apps myservice
+  253  kubectl expose deployment myservivce  --port=80 --name=myservice
+  254  kubectl expose deployment nginx  --port=80 --name=myservice
+  255  kubectl expose deployment myservivce  --port=80 --name=myservice
+  256  kubectl get service
+  257  kubectl expose deployment myservivce     --port=80 --name=myservice
+  258  kubectl get deployments.apps 
+  259  kubectl expose deployment newnginx     --port=80 --name=myservice
+  260  kubectl get pods
+  261  kubectl get deployments.apps 
+  262  kubectl get services 
+  263  ifconfig
+  264  kubectl create -f daemonset-fluentd.yaml 
+  265  kubectl get daemonset -n kube-system
+  266  kubectl get nodes
+  267  kubectl get daemonset -n kube-system
+  268  kubectl get nodes -n kube-system
+  269  kubectl get pods -n kube-system
+  270  history 
+  271  kubectl get daemonset -n kube-system
+  272  kubectl get pods -n kube-system
+  273  kubectl describe fluentd-elasticsearch-lp4wh
+  274  kubectl describe pod fluentd-elasticsearch-lp4wh
+  275  kubectl describe pods fluentd-elasticsearch-lp4wh
+  276  kubectl get pods -n kube-system
+  277  kubectl describe pods fluentd-elasticsearch-lp4wh
+  278  kubectl log pods fluentd-elasticsearch-lp4wh
+  279  kubectl logs 
+  280  kubectl describe pods fluentd-elasticsearch-lp4wh  -n kube-system
+  281  kubectl describe pods fluentd-elasticsearch-lp4wh
+  282  kubectl describe pods fluentd-elasticsearch-lp4wh  -n kube-system
+  283  kubectl get pods -n kube-system
+  284  kubectl describe pods fluentd-elasticsearch-lp4wh  -n kube-system
+  285  kubectl get pods -n kube-system
+  286  kubectl get daemonsets.apps 
+  287  kubectl get daemonsets.apps -all 
+  288  kubectl get daemonsets.apps -all-namespaces
+  289  kubectl get daemonsets.apps --all-namespaces
+  290  kubectl get pods -n kube-system
+  291  kubectl describe pods fluentd-elasticsearch-n6c7k  -n kube-system
+  292  kubectl get pods -n kube-system
+  293  kubectl describe pods fluentd-elasticsearch-lp4wh  -n kube-system
+  294  kubectl get pods -n kube-system
+  295  cd ..
+  296  cd mywork
+  297  mkdir mywork
+  298  cd mywork/
+  299  vi lab5.yaml
+  300  history 
+  301  kubectl describe pods fluentd-elasticsearch-lp4wh  -n kube-system
+  302  kubectl get daemonsets.apps --all-namespaces
+  303  cd cka
+  304  ll 
+  305  cd ..
+  306  ll
+  307  cd mywork/
+  308  ll
+  309  vi lab5.yaml
+  310  nano lab5.yaml
+  311  vi lab5.yaml
+  312  kubectl create -f lab5.yaml 
+  313  kubectl get all 
+  314  kubectl get daemonsets.apps 
+  315  clear
+  316  kubectl get all 
+  317  kubectl get all --all-namespaces 
+  318  cat lab5.yaml
+  319  kubectl get pods -o w
+  320  kubectl get pods -o wide
+  321  kubectl get pods -o wide  --namespace kube-system
+  322  kubectl get pods -o wide  --namespace kube-system  --selector name=nginx-everynode
+  323  nano lab5.yaml 
+  324  kubectl create -f lab5.yaml 
+  325  kubectl delete daemonsets.apps nginx-everynode
+  326  kubectl delete daemonsets.apps nginx-everynode  -n kube-system
+  327  kubectl get daemonsets.apps --all-namespaces 
+  328  nano lab5.yaml 
+  329  kubectl create -f lab5.yaml 
+  330  kubectl get daemonsets.apps --all-namespaces 
+  331  kubectl get daemonsets.apps 
+  332  kubectl get all
+  333  ll 
+  334  cat lab5.yaml 
+  335  l 
+  336  ll
+  337  kubectl get all
+  338  kubectl delete service myservivce 
+  339  kubectl delete service myservice 
+  340  kubectl get all
+  341  kubectl delete deployments.apps  newnginx 
+  342  kubectl delete deployments.apps  rolling-nginx 
+  343  kubectl get all
+  344  kubectl delete daemonsets.apps nginx-everynode 
+  345  kubectl get all
+  346  kubectl delete pods initpod 
+  347  kubectl get all
+  348  kubectl delete pods newnginx-594b479c4-gxl5v 
+  349  kubectl get all
+  350  kubectl delete pods newnginx-594b479c4-vdv7k 
+  351  kubectl get all
+  352  cd cka/
+  353  ll 
+  354  ll *share*
+  355  ll
+  356  ll *vol*
+  357  ll *v*
+  358  cat pvc.yaml 
+  359  sudo shutdown now
+  360  nano shared-volume.yaml
+  361  kubectl create -f shared-volume.yaml 
+  362  nano shared-volume.yaml
+  363  kubectl create -f shared-volume.yaml 
+  364  nano shared-volume.yaml
+  365  kubectl create -f shared-volume.yaml 
+  366  kubectl get pods
+  367  kubectl exec -it sharedvolume -- /bin/bash
+  368  kubectl get pods
+  369  kubectl get pods -o wide
+  370  kubectl get all
+  371  kubect descrie pod
+  372  kubectl  describe  pod sharedvolume   
+  373    centos1:
+  374      Container ID:  docker://40aef71710ff7349441020c42876393900c75d3f6ca178a8f68907ceec4eba95
+  375      Image:         centos:7
+  376      Image ID:      docker-pullable://centos@sha256:0f4ec88e21daf75124b8a9e5ca03c37a5e937e0e108a255d890492430789b60e
+  377      Port:          <none>
+  378      Host Port:     <none>
+  379      Command:
+  380        sleep
+  381        3600
+  382      State:          Running
+  383        Started:      Sat, 20 Mar 2021 14:39:04 -0500
+  384      Ready:          True
+  385      Restart Count:  0
+  386      Environment:    <none>
+  387      Mounts:
+  388        /centos1 from test (rw)
+  389        /var/run/secrets/kubernetes.io/serviceaccount from default-token-c4f6b (ro)
+  390    centos1:
+  391      Container ID:  docker://40aef71710ff7349441020c42876393900c75d3f6ca178a8f68907ceec4eba95
+  392      Image:         centos:7
+  393      Image ID:      docker-pullable://centos@sha256:0f4ec88e21daf75124b8a9e5ca03c37a5e937e0e108a255d890492430789b60e
+  394      Port:          <none>
+  395      Host Port:     <none>
+  396      Command:
+  397        sleep
+  398        3600
+  399      State:          Running
+  400        Started:      Sat, 20 Mar 2021 14:39:04 -0500
+  401      Ready:          True
+  402      Restart Count:  0
+  403      Environment:    <none>
+  404      Mounts:
+  405        /centos1 from test (rw)
+  406        /var/run/secrets/kubernetes.io/serviceaccount from default-token-c4f6b (ro)
+  407  nano shared-volume.yaml 
+  408  history 
+  409  kubectl exec -it sharedvolume -- /bin/bash
+  410  nano shared-volume.yaml 
+  411  kubectl exec -it sharedvolume --container centos2 -- /bin/bash
+  412   
+  413  kubectl explain pods.spec.volume
+  414  kubectl explain pods.spec.volumes
+  415  kubectl explain pods.spec.volumes  | less 
+  416  kubectl get nods
+  417  kubectl get nodes
+  418  cd cka
+  419  git pull 
+  420  kubectl create -f pv.yaml 
+  421  kubectl  get 
+  422  kubectl  get pv pv-volume 
+  423  ll 
+  424  cd cka
+  425  ll 
+  426  ll 
+  427  cd cka/
+  428  ll 
+  429  ll /
+  430  git pull 
+  431  kubectl create -f pv-nfs.yaml 
+  432  kubectl get pv
+  433  ll /da
+  434  kubectl get nodes
+  435  kubectl describe pv-volume
+  436  kubectl describe persistentvolume error: the server doesn't have a resource type "pv-volume"
+  437  kubectl describe persistentvolume pv-nfs
+  438  git pull 
+  439  ll 
+  440  git pull 
+  441  kubectl create -f pvc-nfs.yaml 
+  442  kubectl create -f pvc.yaml 
+  443  kubectl get pvc
+  444  kubectl get pv
+  445  ps aux | grep ku
+  446  kubectl get pvc
+  447  kubectl get pv
+  448  kubectl get pv pvc
+  449  kubectl get pv 
+  450  kubectl get pvc
+  451  git pull 
+  452  kubectl create -f nfs-pv-pod.yaml 
+  453  kubectl get pods 
+  454  kubectl get pods -o wide
+  455  kubectl describe pod nfs-pv-pod 
+  456  kubectl get pods -o wide
+  457  kubectl get pv 
+  458  kubectl get pv  -o yaml 
+  459  ll
+  460  kubectl get nodes
+  461  date 
+  462  reboot
+  463  date 
+  464  timezone
+  465  tz
+  466  cat /etc/timezone
+  467  date 
+  468  timedatectl list-timezones
+  469  timedatectl list-timezones  | grep Edmon
+  470  timedatectl list-timezones  | grep America
+  471  sudo timedatectl set-timezone America/Edmonton
+  472  date 
+  473  datetime
+  474  date 
+  475  ssh 192.168.1.111
+  476  ssh 192.168.1.112
+  477  ssh 192.168.1.111
+  478  sudo apt update
+  479  sudo apt-get update
+  480  ssh 192.168.1.111
+  481  ping sohu.com
+  482  ssh 192.168.1.111
+  483  exit 
+  484  ll 
+  485  date 
+  486  ping google.ca
+  487  ll 
+  488  ping google.ca
+  489  ssh 192.168.1.113
+  490  cat /etc/resolv.conf 
+  491  kubectl get nodes
+  492  date 
+  493  timedatectl 
+  494  ssh 192.168.1.112
+  495  ssh 192.168.1.113
+  496  ssh 192.168.1.111
+  497  kubectl get nodes 
+  498  git pull 
+  499  cd cka
+  500  git pull 
+  501  kubectl create -f lab6-pv.yaml 
+  502  kubectl  get pv
+  503  git pull 
+  504  kubectl create -f lab6-pv.yaml 
+  505  git pull 
+  506  kubectl create -f lab6-pvc.yaml 
+  507  kubectl get pvc
+  508  git pull 
+  509  kubectl create -f lab6-pod.yaml 
+  510  ll 
+  511  kubectl create -f lab6-pod.yaml 
+  512  git poull 
+  513  git poll 
+  514  git pull 
+  515  kubectl create -f lab6-pod.yaml 
+  516  git pull 
+  517  kubectl create -f lab6-pod.yaml 
+  518  git pull 
+  519  kubectl create -f lab6-pod.yaml 
+  520  kubectl get nodes
+  521  kubectl get node
+  522  kubectl get pods
+  523  kubectl log pod pod-lab6
+  524  kubectl logs pod pod-lab6
+  525  kubectl logs pod-lab6
+  526  kubectl describe pod  pod-lab6
+  527  kubectl get pods
+  528  kubectl describe pod  pod-lab6
+  529  kubectl get pods
+  530  kubectl exec -it pod-lab6 /bin/sh
+  531  kubectl describe 
+  532  kubectl describe pod pod-lab6
+  533  kubectl get nodes
+  534  ll 
+  535  clera 
+  536  clear 
+  537  git pull 
+  538  kubectl create -f net-demo.yaml 
+  539  kubect get pods 
+  540  kubectl get pods 
+  541  kubectl exec net-demo -c busy1 ip a s
+  542  kubectl exec net-demo -c busy2 ip a s
+  543  kubectl describe pod net-demo 
+  544  kubectl exec net-demo -c busy2 ip a s
+  545  kubectl exec net-demo -c busy ip a s
+  546  kubectl exec net-demo -c busy1 ip a s
+  547  kubectl get pod net-demo -o wide
+  548  ssh worker1
+  549  ssh worker1.example.com 
+  550  ll
+  551  ssh worker1.example.com 
+  552  kubectl get pod net-demo -o wide
+  553  kubectl exec net-demo -c busy ip a s
+  554  ssh worker1.example.com 
+  555  history 
+  556  history > commands_on_contriller.txt
