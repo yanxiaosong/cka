@@ -1,3 +1,5 @@
+# Command to create ConfigMap:
+# kubectl create cm myconfig --from-literal=color=red
 apiVersion: v1
 kind: Pod
 metadata:
