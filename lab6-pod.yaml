@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+spec:
+  volumes:
+    - name: pv-storage-lab6
+      persistentVolumeClaim:
+        claimName: pc-claim-lab6
+  containers:
+    - name: pv-container-lab6
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/var/www"
+          name: pv-storage
