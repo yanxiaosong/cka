@@ -15,4 +15,4 @@ spec:
           name: "http-server"
       volumeMounts:
         - mountPath: "/var/www"
-          name: pv-storage
+          name: pv-storage-lab6
