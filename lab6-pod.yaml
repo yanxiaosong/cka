@@ -6,7 +6,7 @@ spec:
   volumes:
     - name: pv-storage-lab6
       persistentVolumeClaim:
-        claimName: pc-claim-lab6
+        claimName: pv-claim-lab6
   containers:
     - name: pv-container-lab6
       image: nginx
