@@ -1,5 +1,7 @@
 apiVersion: v1
 kind: Pod
+metadata:
+  name: pod-lab6
 spec:
   volumes:
     - name: pv-storage-lab6
