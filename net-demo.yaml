@@ -14,4 +14,3 @@ spec:
       command:
         - sleep
         - "3600"
-        -
