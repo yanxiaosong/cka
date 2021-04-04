@@ -9,7 +9,7 @@ spec:
       command:
         - sleep
         - "3600"
-    - name: busy
+    - name: busy2
       image: busybox
       command:
         - sleep
